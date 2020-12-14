@@ -1,34 +1,35 @@
 <odoo>
     <data>
-        <record model="ir.ui.view" id="catastro.producto">
-          <field name="name"> Inventario </field>
+        <record model="ir.ui.view" id="catastro.producto_list">
+          <field name="name">catastro list</field>
           <field name="model">catastro.producto</field>
           <field name="arch" type="xml">
-          <tree>
-          <field Nombre="name"/>
-          <field Precio="Precio"/>
-          <field Stock ="Stock"/>
-        </tree>
-
-        <record model="ir.actions.act_window" id="catastro.action_window">
-      <field name="name">catastro window</field>
-      <field name="res_model">catastro.poliza</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    <record model="ir.actions.server" id="catastro.producto.action_server">
-      <field name="name">catastro server</field>
-      <field name="model_id" ref="model_catastro_producto"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
-    </record>
-     <menuitem name="catastro" id="catastro.menu_root"/>
-     <menuitem name="List" id="catastro.menu_1_list" parent="catastro.menu_1"
-              action="catastro.action_window"/>
-</data>
+            <tree>
+              <field name="nombre"/>
+                    
+              <field name="precio"/>
+              <field name ="stock"/>
+            </tree>
+           </field>
+        </record>
+        <record model="ir.actions.act_window" id="catastro.producto_action_window">
+            <field name="name">catastro</field>
+            <field name="res_model">catastro.producto</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record model="ir.actions.server" id="catastro.producto_action_server">
+            <field name="name">catastro server</field>
+            <field name="model_id" ref="model_catastro_producto"/>
+            <field name="state">code</field>
+            <field name="code">
+           action = {
+           "type": "ir.actions.act_window",
+           "view_mode": "tree,form",
+           "res_model": self._name,
+            }
+        </field>
+        </record>
+        <menuitem name="catastro" id="catastro.menu_root"/>
+        <menuitem name="productos" id="catastro.menu_producto" parent="catastro.menu_root" action="catastro.producto_action_window"/>
+    </data>
 </odoo>
