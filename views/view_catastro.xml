@@ -1,15 +1,15 @@
 <odoo>
     <data>
-        <record model="ir.ui.view" id="catastro.producto_list">
+        <record model="ir.ui.view" id="catastro.producto_list"> 
           <field name="name">catastro list</field>
           <field name="model">catastro.producto</field>
           <field name="arch" type="xml">
-            <tree>
-              <field name="nombre"/>
-                    
-              <field name="precio"/>
-              <field name ="stock"/>
-            </tree>
+             <tree>
+                 <field name="name"/>
+
+                 <field name="precio"/>
+                 <field name="stock"/>         
+             </tree>           
            </field>
         </record>
         <record model="ir.actions.act_window" id="catastro.producto_action_window">
@@ -30,6 +30,6 @@
         </field>
         </record>
         <menuitem name="catastro" id="catastro.menu_root"/>
-        <menuitem name="productos" id="catastro.menu_producto" parent="catastro.menu_root" action="catastro.producto_action_window"/>
+        <menuitem name="Inventario" id="catastro.menu_producto" parent="catastro.menu_root" action="catastro.producto_action_window"/>
     </data>
 </odoo>
